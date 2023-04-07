@@ -14,5 +14,5 @@ npx create-strapi-app@latest my-project --quickstart
 corepack enable
 pnpm i
 pnpm build
-pm2 start ecosystem.config.js
+pm2 start
 ```
