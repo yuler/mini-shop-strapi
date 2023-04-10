@@ -8,11 +8,17 @@
 npx create-strapi-app@latest my-project --quickstart
 ```
 
-## Deployment
+## Development
 
 ```bash
 corepack enable
 pnpm i
+pnpm dev
+```
+
+## Deployment
+
+```bash
 pnpm build
 pm2 start
 ```
