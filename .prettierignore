@@ -1,0 +1,6 @@
+pnpm-lock.yaml
+
+# TODO: Remove when prettier release new version, for support multiple `--ignore-path`
+build
+dist
+.cache

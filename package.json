@@ -2,12 +2,14 @@
   "name": "mini-shop-strapi",
   "private": true,
   "version": "0.1.0",
+  "packageManager": "pnpm@7.27.0",
   "description": "A Strapi application",
   "scripts": {
     "dev": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@strapi/plugin-i18n": "4.9.0",
@@ -15,6 +17,9 @@
     "@strapi/strapi": "4.9.0",
     "better-sqlite3": "8.0.1",
     "markdown-it": "^13.0.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.7"
   },
   "strapi": {
     "uuid": "509dba58-83cb-43bc-8375-ce696e7077e6"
