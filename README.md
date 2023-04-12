@@ -16,3 +16,7 @@ pnpm dev
 pnpm build
 pm2 start
 ```
+
+## Actions
+
+- `gitlab-sync` job for sync to https://gitlab.com/yuler/mini-shop-strapi
