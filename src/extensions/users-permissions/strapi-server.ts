@@ -47,7 +47,6 @@ export default function (plugin: any) {
 
     const params = {
       ..._.pick<{ code: string }>(ctx.request.body, ['code']),
-      provider: 'miniprogram',
     }
 
     // Validate the input
@@ -92,7 +91,8 @@ export default function (plugin: any) {
 
     const user = await getService('user').add({
       role: role.id,
-      ...params,
+      openid,
+      provider: 'miniprogram',
     })
 
     return ctx.send({
