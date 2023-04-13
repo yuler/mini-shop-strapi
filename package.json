@@ -1,32 +1,13 @@
 {
-  "name": "mini-shop-strapi",
+  "name": "mini-shop",
   "private": true,
-  "version": "0.1.0",
-  "packageManager": "pnpm@7.27.0",
-  "description": "A Strapi application",
+  "packageManager": "pnpm@7.32.0",
   "scripts": {
-    "dev": "strapi develop",
-    "start": "strapi start",
-    "build": "strapi build",
-    "strapi": "strapi",
-    "format": "prettier --write ."
-  },
-  "dependencies": {
-    "@strapi/plugin-i18n": "4.9.0",
-    "@strapi/plugin-users-permissions": "4.9.0",
-    "@strapi/strapi": "4.9.0",
-    "better-sqlite3": "8.0.1",
-    "markdown-it": "^13.0.1"
-  },
-  "devDependencies": {
-    "prettier": "^2.8.7"
-  },
-  "strapi": {
-    "uuid": "509dba58-83cb-43bc-8375-ce696e7077e6"
-  },
-  "engines": {
-    "node": ">=14.19.1 <=18.x.x",
-    "npm": ">=6.0.0"
-  },
-  "license": "MIT"
+    "test": "echo \"Test\"",
+    "mini:open": "pnpm --filter mini ide:open",
+    "mini:dev": "pnpm --filter mini dev",
+    "mini:build": "pnpm --filter mini build",
+    "api:dev": "pnpm --filter mini dev",
+    "api:build": "pnpm --filter mini build"
+  }
 }

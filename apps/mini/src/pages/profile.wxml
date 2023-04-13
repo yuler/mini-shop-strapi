@@ -1,0 +1,24 @@
+<view class="mt-4 pb-10 px-2">
+  <view
+    wx:for="{{5}}"
+    wx:for-index="n"
+    wx:key="n"
+    class="mb-2 px-4 py-2 bg-white rounded"
+  >
+    <view class="flex justify-between items-center">
+      <view>
+        <view class="text-lg">桃子1号</view>
+        <view class="text-sm text-gray-500">2023-02-28 19:29:31</view>
+      </view>
+      <view>未完成</view>
+    </view>
+    <view class="mt-2 flex justify-between items-center">
+      <image
+        src="https://go.cdn.heytea.com/storage/ad/2022/03/07/6922f14e1b034f02ad706917b4a7e79d.jpg-app"
+        mode="widthFix"
+        class="w-20 h-20 rounded"
+      />
+      <view class="text-xl">￥99</view>
+    </view>
+  </view>
+</view>

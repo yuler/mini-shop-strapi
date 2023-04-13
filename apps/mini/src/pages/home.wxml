@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="mt-4 pb-10 px-2 grid grid-cols-2 gap-2">
+    <view
+      wx:for="{{products}}"
+      wx:for-item="product"
+      wx:key="id"
+      class="bg-white rounded overflow-hidden"
+      bind:tap="gotoProduct"
+      data-id="{{product.id}}"
+    >
+      <image
+        mode="widthFix"
+        class="w-full"
+        src="http://strapi.ganfans.com{{product.attributes.poster.data.attributes.url}}"
+      />
+      <view class="px-2 pb-2">
+        <view class="flex justify-between">
+          <view class="text-lg">{{product.attributes.name}}</view>
+          <view class="text-lg font-bold">
+            ￥{{product.attributes.price / 100}}
+          </view>
+        </view>
+        <view class="text-gray-800 text-sm">
+          {{ product.attributes.summary }}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

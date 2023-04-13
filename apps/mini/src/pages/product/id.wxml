@@ -1,0 +1,43 @@
+<view wx:if="{{product}}" class="bg-white min-h-screen">
+  <swiper
+    indicator-dots="{{true}}"
+    autoplay="{{true}}"
+    interval="{{3000}}"
+    duration="{{1000}}"
+    class="h-480rpx"
+  >
+    <block
+      wx:for="{{product.attributes.carousels.data}}"
+      wx:for-item="carousel"
+      wx:key="id"
+    >
+      <swiper-item>
+        <image
+          src="https://strapi.ganfans.com{{carousel.attributes.url}}"
+          mode="aspectFill"
+          class="w-full"
+        />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="px-4 py-2">
+    <view class="text-lg font-bold">{{product.attributes.name}}</view>
+    <view class="text-sm text-grap-500">{{product.attributes.summary}}</view>
+  </view>
+  <view class="flex flex-col px-4 py-2 pb-20">
+    <view class="text-lg font-bold">商品详情</view>
+    <rich-text nodes="{{product.attributes.descriptionHTML}}" />
+  </view>
+
+  <view class="w-full h-18 fixed left-0 bottom-5">
+    <button
+      class="mt-4"
+      style="box-shadow: 5rpx 20rpx 20rpx -10rpx rgba(0, 0, 0, 0.5)"
+      type="primary"
+      bind:tap="gotoConfirm"
+      data-id="{{product.id}}"
+    >
+      立即购买
+    </button>
+  </view>
+</view>

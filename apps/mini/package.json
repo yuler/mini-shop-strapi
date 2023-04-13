@@ -1,0 +1,35 @@
+{
+  "name": "@mini-shop/mini",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "ide:open": "tsx scripts/ide-cli.ts open",
+    "ide:preview": "tsx scripts/ide-cli.ts preview",
+    "ide:npm": "tsx scripts/ide-cli.ts build-npm",
+    "clean": "tsx scripts/clean.ts",
+    "dev": "tsx scripts/dev.ts",
+    "build": "tsx scripts/build.ts",
+    "build:unocss": "npx unocss client/**/*.wxml --out-file client/unocss.wxss",
+    "upload": "tsx scripts/upload.ts",
+    "format": "prettier -w \"**/*.{ts,js,wxml,wxss,wxs,json,md}\""
+  },
+  "dependencies": {
+    "mitt": "^3.0.0",
+    "qs": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.45",
+    "@types/qs": "^6.9.7",
+    "@unocss/cli": "^0.50.8",
+    "dotenv": "^10.0.0",
+    "esbuild": "^0.14.54",
+    "execa": "^6.1.0",
+    "fast-glob": "^3.2.12",
+    "miniprogram-api-typings": "^3.9.1",
+    "miniprogram-ci": "^1.9.5",
+    "prettier": "^2.8.7",
+    "tsx": "^3.12.6",
+    "unocss": "^0.50.8"
+  }
+}

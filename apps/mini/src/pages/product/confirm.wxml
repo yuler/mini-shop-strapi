@@ -1,0 +1,64 @@
+<view wx:if="{{product}}" class="bg-gray-200 min-h-screen">
+  <view class="px-4 pt-4">
+    <view
+      class="bg-white rounded px-4 py-2 flex items-center justify-between"
+      bind:tap="onChooseAddress"
+    >
+      <view class="text-lg font-bold">收货地址</view>
+      <view class="text-sm text-gray-500">获取微信收货地址</view>
+      <!-- TODO: -->
+      <!-- <app-icon name="chevron-right" /> -->
+    </view>
+    <view class="mt-4 bg-white rounded px-4 py-3 flex gap-4">
+      <image
+        src="https://strapi.ganfans.com{{product.attributes.poster.data.attributes.url}}"
+        mode="widthFix"
+        class="w-25 h-25 rounded"
+      />
+      <view class="flex-1 flex flex-col justify-between">
+        <view>
+          <view class="text-lg font-bold">{{product.attributes.name}}</view>
+          <view class="text-sm text-grap-500">
+            {{product.attributes.summary}}
+          </view>
+        </view>
+        <view>
+          <view class="font-bold">选择数量</view>
+          <!-- TODO: replace icon -->
+          <view class="flex gap-2 mt-4">
+            <view
+              class="text-2xl w-8 h-8 block text-center leading-7 border border-solid border-black"
+              bind:tap="onPlus"
+            >
+              ＋
+            </view>
+            <input
+              class="w-10 h-8 leading-8 text-lg text-center"
+              type="number"
+              model:value="{{quantity}}"
+            />
+            <view
+              class="text-2xl w-8 h-8 block text-center leading-7 border border-solid border-black"
+              bind:tap="onMinus"
+            >
+              －
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="mt-4 bg-white rounded px-4 py-2">
+      <view class="text-lg font-bold">备注</view>
+      <textarea model:value="{{remark}}" placeholder="请输入备注内容" />
+    </view>
+
+    <button
+      class="mt-4"
+      style="box-shadow: 5rpx 20rpx 20rpx -10rpx rgba(0, 0, 0, 0.5)"
+      type="primary"
+      bind:tap="onSubmit"
+    >
+      确认下单
+    </button>
+  </view>
+</view>
