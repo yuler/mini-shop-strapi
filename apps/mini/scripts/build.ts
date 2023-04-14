@@ -3,8 +3,7 @@ import path from 'node:path'
 import glob from 'fast-glob'
 import esbuild from 'esbuild'
 import { execa } from 'execa'
-
-import { dirname } from './utils.js'
+import { dirname, exists } from './utils.js'
 
 // Paths
 const __dirname = dirname(import.meta)
@@ -19,15 +18,32 @@ const projectJson: Record<string, any> = JSON.parse(
 
 // ESBuild
 esbuild.build({
-  entryPoints: glob.sync('src/**/*.ts', { cwd: root }),
-  outdir: '.',
-  outbase: '.',
+  entryPoints: glob.sync(`${projectJson.srcMiniprogramRoot}/**/*.ts`, {
+    cwd: root,
+  }),
+  outdir: './dist/',
+  outbase: '',
   define: {
     __appId: JSON.stringify(projectJson.appid),
     __version: JSON.stringify(packageJson.version),
     __apiRoot: JSON.stringify('https://strapi.ganfans.com/api/'),
   },
 })
+
+// Copy files w/o `.ts` extension
+const files = glob.sync([`**/*`, '!**/*.ts'], {
+  cwd: projectJson.srcMiniprogramRoot,
+})
+for (const file of files) {
+  const dir = path.resolve('dist', path.dirname(file))
+  if (!(await exists(dir))) {
+    await fs.mkdir(dir, { recursive: true })
+  }
+  await execa('cp', [
+    `${projectJson.srcMiniprogramRoot}${file}`,
+    `dist/${path.dirname(file)}`,
+  ])
+}
 
 // Unocss
 execa('unocss', [

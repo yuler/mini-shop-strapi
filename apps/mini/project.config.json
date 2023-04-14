@@ -3,8 +3,9 @@
   "projectname": "mini-shop",
   "description": "wechat miniprogram project config",
   "appid": "wx8e398778f77459e9",
-  "miniprogramRoot": "src/",
-  "libVersion": "2.19.4",
+  "miniprogramRoot": "dist/",
+  "srcMiniprogramRoot": "src/",
+  "libVersion": "2.25.3",
   "compileType": "miniprogram",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
@@ -46,7 +47,7 @@
     "packNpmRelationList": [
       {
         "packageJsonPath": "./package.json",
-        "miniprogramNpmDistDir": "./src"
+        "miniprogramNpmDistDir": "./dist"
       }
     ],
     "minifyWXSS": true,
@@ -56,7 +57,6 @@
     "minifyWXML": true
   },
   "condition": {},
-  "srcMiniprogramRoot": "src/",
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2

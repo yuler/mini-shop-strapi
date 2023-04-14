@@ -3,7 +3,7 @@ import fs from 'node:fs/promises'
 
 import ci from 'miniprogram-ci'
 
-import {dirname} from './utils'
+import { dirname } from './utils'
 
 // Paths
 const __dirname = dirname(import.meta)
@@ -35,7 +35,7 @@ console.log(buildNpmResult)
 const project = new ci.Project({
   appid: projectJSON.appid,
   type: 'miniProgram',
-  projectPath: root,
+  projectPath: path.resolve(root),
   privateKeyPath: path.resolve(root, `./private.${projectJSON.appid}.key`),
   ignores: ['scripts', 'README.md'],
 })
@@ -43,15 +43,21 @@ const uploadResult = await ci.upload({
   project,
   version: pakcageJSON.version,
   desc: pakcageJSON.description,
+  robot: 1,
+  useCOS: false,
   setting: {
+    es6: true,
     es7: true,
-    minify: true,
-    codeProtect: true,
+    disableUseStrict: true,
     minifyJS: true,
     minifyWXML: true,
     minifyWXSS: true,
+    minify: true,
+    codeProtect: true,
     autoPrefixWXSS: true,
   },
+  onProgressUpdate: console.log,
+  allowIgnoreUnusedFiles: true,
 })
 console.log(uploadResult)
 

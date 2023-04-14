@@ -3,19 +3,19 @@ import fs from 'node:fs/promises'
 
 import glob from 'fast-glob'
 
-import {dirname} from './utils'
+import { dirname } from './utils'
 
 // Paths
 const __dirname = dirname(import.meta)
 const root = path.resolve(__dirname, '..')
 
 try {
-  // Remove `client/miniprogram_npm` directory
-  await fs.rmdir(path.resolve(root, 'client/miniprogram_npm'), {
+  // Remove `src/miniprogram_npm` directory
+  await fs.rmdir(path.resolve(root, 'src/miniprogram_npm'), {
     recursive: true,
   })
-  // Remove `client/**/*.js` file
-  const files = glob.sync('client/**/*.js', {cwd: root})
+  // Remove `src/**/*.js` file
+  const files = glob.sync('src/**/*.js', { cwd: root })
   for (const file of files) {
     await fs.rm(file)
   }

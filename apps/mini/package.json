@@ -7,10 +7,10 @@
     "ide:open": "tsx scripts/ide-cli.ts open",
     "ide:preview": "tsx scripts/ide-cli.ts preview",
     "ide:npm": "tsx scripts/ide-cli.ts build-npm",
-    "clean": "tsx scripts/clean.ts",
     "dev": "tsx scripts/dev.ts",
     "build": "tsx scripts/build.ts",
     "build:unocss": "npx unocss client/**/*.wxml --out-file client/unocss.wxss",
+    "clean": "rm -rf dist",
     "upload": "tsx scripts/upload.ts",
     "format": "prettier -w \"**/*.{ts,js,wxml,wxss,wxs,json,md}\""
   },
